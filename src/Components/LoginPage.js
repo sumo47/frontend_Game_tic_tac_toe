@@ -1,28 +1,25 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export default function LoginPage() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const Navigate = useNavigate();
 
     const userLogin = function (event) {
-        const navigate = useNavigate()
-
-        const login = function (event) {
-            event.preventDefault();
-            axios.post('http://localhost:4000/', {
-                email, password
+        event.preventDefault();
+        axios.post('https://backendgame-production.up.railway.app/login', {
+            email, password
+        })
+            .then((res) => {
+                alert(`Your Acount Login Succesfully`)
+                const token = res.data.token;
+                localStorage.setItem("x-api-key", token)
+                Navigate('/Game')
+            }).catch((err) => {
+                alert(err.response.data.message + err.response.status + " Error")
             })
-                .then((res) => {
-                    alert(`Your Acount Login Succesfully`)
-                    const token = res.data.token;
-                    localStorage.setItem("x-api-key", token)
-                    navigate('/')
-                }).catch((err) => {
-                    alert(err.response.data.message + err.response.status + " Error")
-                })
-        }
     }
     return (
         <>
@@ -36,9 +33,6 @@ export default function LoginPage() {
                     </form>
                 </div>
             </div>
-            <div className="row gap-3">
-            </div>
         </>
     )
 }
-
