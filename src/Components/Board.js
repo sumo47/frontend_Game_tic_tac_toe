@@ -49,12 +49,12 @@ const Board = () => {
     return (
         <>
             <div className="container m-5">
-                {isWinner ? (
+                {
+                isWinner ? (
                 <div className='container'>
-                <h1 className='text-primary'>{`Oolala, ${isWinner} Won`}</h1>
+                <h1 className='text-primary'>{`Wow, ${isWinner} Won`}</h1>
                 <button className="btn btn-outline-success" onClick={reset}> Play Again</button>
-                </div>
-                ) : (<>
+                </div>) : (<>
                     <h4 className='text-info m-3'>{`${isXTurn?"X":"O"} Move`}</h4>
                     <div className="container d-flex  align-items-center">
                         <Square SquareValue={() => handleClick(0)} value={state[0]} />

@@ -9,7 +9,7 @@ export default function LoginPage() {
 
     const userLogin = function (event) {
         event.preventDefault();
-        axios.post('https://backendgame-production.up.railway.app/login', {
+        axios.post('http://localhost:4000/login', {
             email, password
         })
             .then((res) => {
