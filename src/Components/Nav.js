@@ -1,16 +1,16 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 
 
 export default function nav(){
-    const Navigate = useNavigate()
+    // const Navigate = useNavigate()
 
-    const logout = function () {
-        alert("Logout successfully!")
-        localStorage.removeItem("x-api-key")
-        Navigate('/')
-    }
+    // const logout = function () {
+    //     alert("Logout successfully!")
+    //     localStorage.removeItem("x-api-key")
+    //     Navigate('/')
+    // }
     
     return(
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -44,7 +44,7 @@ export default function nav(){
                 </ul>
                 <form className="d-flex" role="search">
                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="btn btn-outline-danger" type="submit" onClick={logout}>Logout</button>
+                    {/* <button className="btn btn-outline-danger" type="submit" onClick={logout}>Logout</button> */}
                 </form>
             </div>
         </div>
